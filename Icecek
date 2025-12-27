@@ -1,0 +1,17 @@
+public class Icecek extends Urun {
+    private String boyut;
+
+    public Icecek(String ad, double fiyat, String boyut) {
+        super(ad, fiyat);
+        this.boyut = boyut;
+    }
+
+    public String getBoyut() {
+        return boyut;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Boyut: " + boyut;
+    }
+}
