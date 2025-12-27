@@ -1,0 +1,17 @@
+public class Garson {
+	
+    private String ad;
+
+    public Garson(String ad) {
+        this.ad = ad;
+    }
+
+    public String getAd() {
+        return ad;
+    }
+
+    @Override
+    public String toString() {
+        return "Garson Adı: " + ad;
+    }
+}
