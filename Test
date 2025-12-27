@@ -1,0 +1,57 @@
+
+public class Test {
+    public static void main(String[] args) {
+        
+        Restoran restoran = new Restoran();
+
+        // 2) menü ve içeriği
+        Urun yemek1 = new Yemek("Köfte", 105.0, "Ana Yemek");
+        Urun yemek2 = new Yemek("tavuk şiş", 100.0, "Ana Yemek");
+        Urun yemek3 =new Yemek("Et sote", 155.0, "Ana yemek");
+        Urun icecek1 = new Icecek("Kola", 25.0, "Büyük");
+        Urun icecek2 = new Icecek("Çay", 5.0, "Orta");
+        Urun icecek3 = new Icecek("ayran", 12.0, "büyük");
+
+        restoran.menuyeUrunEkle(yemek1);
+        restoran.menuyeUrunEkle(yemek2);
+        restoran.menuyeUrunEkle(yemek3);
+        restoran.menuyeUrunEkle(icecek3);
+
+        restoran.menuyeUrunEkle(icecek1);
+        restoran.menuyeUrunEkle(icecek2);
+
+        // 3) garsonlar
+        Garson garson1 = new Garson("mualla");
+        Garson garson2 = new Garson("ebrar");
+        Garson garson3 = new Garson("eren");
+
+        restoran.garsonEkle(garson1);
+        restoran.garsonEkle(garson2);
+        restoran.garsonEkle(garson3);
+
+        Musteri musteri4 = new Musteri("Turgay");
+        Musteri musteri1 = new Musteri("hasibe");
+        Musteri musteri2 = new Musteri("Zeynep");
+        Musteri musteri3 = new Musteri("ergün");
+        Musteri musteri5 = new Musteri("erdem");
+
+        restoran.musteriEkle(musteri1);
+        restoran.musteriEkle(musteri2);
+        restoran.musteriEkle(musteri3);
+        restoran.musteriEkle(musteri4);
+        restoran.musteriEkle(musteri5);
+
+
+        // 4) Restoranın menüsünü konsola yazdıran metot
+        restoran.menuyuGoster();
+
+        // 5) Restoran sınıfının ilgili metodunu kullanarak rastgele 10 adet sipariş oluşturur
+        restoran.siparisOlustur(10);
+    }
+}
+
+
+ 
+
+        
+
