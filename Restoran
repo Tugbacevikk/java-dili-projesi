@@ -1,0 +1,81 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+
+public class Restoran {
+    private ArrayList<Urun> menu;
+    private ArrayList<Garson> garsonlar;
+    private ArrayList<Musteri> musteriler;
+    private int siparisSira = 0; //sipariş numarasını takip eder
+
+    public Restoran() {
+        menu = new ArrayList<>();   
+        garsonlar = new ArrayList<>();
+        musteriler = new ArrayList<>();
+    }
+
+    public void menuyeUrunEkle(Urun urun) { //ürün eklemeye yardımcı metot
+        menu.add(urun);
+    }
+
+    public void garsonEkle(Garson garson) { //garson ekleyen metot
+        garsonlar.add(garson);
+    }
+
+    public void musteriEkle(Musteri musteri) { //müşteri ekleyen metot
+        musteriler.add(musteri);
+    }
+
+    public void menuyuGoster() { //menüyü müşteriye gosteren metot
+        System.out.println("Menü:");
+        for (Urun urun : menu) {
+            System.out.println(urun);
+        }
+    }
+
+    public void siparisOlustur(int musteriAdet) { //restorana gelen müşterinin random şiparişinin random bir garson tarafından alınmasını saglayan metot
+        Random random = new Random();
+        for (int i = 0; i < musteriAdet; i++) {
+            Musteri musteri = musteriler.get(random.nextInt(musteriler.size()));
+            Garson garson = garsonlar.get(random.nextInt(garsonlar.size()));
+            Urun urun = menu.get(random.nextInt(menu.size()));
+
+            Siparis siparis = new Siparis(urun, null, musteri, garson);
+            siparisBilgisi(siparis);
+            siparisYazdir(siparis);
+        }
+    }
+
+    private void siparisBilgisi(Siparis siparis) { // şiariş bilgilerini yazdıran metot
+        System.out.println("Sipariş Bilgisi:");
+        System.out.println("Müşteri: " + siparis.getMusteri().getAd());
+        System.out.println("Garson: " + siparis.getGarson().getAd());
+        System.out.println("Ürün: " + siparis.getUrun());
+        System.out.println("Sipariş No: " + siparis.getSiparisNo());
+        System.out.println("Sipariş Zamanı: " + siparis.getTarih());
+        System.out.println("--------------------------");
+    }
+
+    private void siparisYazdir(Siparis siparis) { //sipariş sonucundaki fişte yazılan bilgileri gösteren metot
+        try {
+            File dosya = new File("Siparisler/siparis_" + siparis.getSiparisNo() + ".txt");
+            dosya.getParentFile().mkdirs(); // Siparisler klasörünü oluşturur
+            PrintWriter writer = new PrintWriter(new FileWriter(dosya));
+            writer.println("Sipariş Bilgisi:");
+            writer.println("Müşteri: " + siparis.getMusteri().getAd());
+            writer.println("Garson: " + siparis.getGarson().getAd());
+            writer.println("Ürün: " + siparis.getUrun());
+            writer.println("Sipariş No: " + siparis.getSiparisNo());
+            writer.println("Sipariş Zamanı: " + siparis.getTarih());
+            writer.close();
+        } catch (IOException e) {// dosya yazma işlemlerinde hata olmaması için hata yakalama kullandım
+            e.printStackTrace();
+        }
+    }
+}
+
+
