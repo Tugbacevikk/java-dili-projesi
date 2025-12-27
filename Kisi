@@ -1,0 +1,17 @@
+abstract class Kisi {
+	//garson ve müsteri classı bu clastan miras alır.
+    private String ad;
+
+    public Kisi(String ad) {
+        this.ad = ad;
+    }
+
+    public String getAd() {
+        return ad;
+    }
+
+    @Override
+    public String toString() {
+        return ad;
+    }
+}
