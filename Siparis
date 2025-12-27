@@ -1,0 +1,60 @@
+import java.util.Date;
+public class Siparis {
+    private Urun urun;
+    private Icecek icecek;
+    private Musteri musteri;
+    private Garson garson;
+    private Date tarih;
+    private long siparisNo;
+
+    public Siparis(Urun urun, Icecek icecek, Musteri musteri, Garson garson) {
+        this.urun = urun;
+        this.icecek = icecek;
+        this.musteri = musteri;
+        this.garson = garson;
+        this.tarih = new Date();
+        this.siparisNo = System.currentTimeMillis(); // Sipariş numarası olarak anlık sistem zamanını kullan
+    }
+
+    public Urun getUrun() {
+        return urun;
+    }
+
+    public Icecek getIcecek() {
+        return icecek;
+    }
+
+    public Musteri getMusteri() {
+        return musteri;
+    }
+
+    public Garson getGarson() {
+        return garson;
+    }
+
+    public Date getTarih() {
+        return tarih;
+    }
+
+    public long getSiparisNo() {
+        return siparisNo;
+    }
+
+    @Override
+    public String toString() {
+        String siparisDetay;
+        if (urun != null && icecek != null) {
+            siparisDetay = "Yemek: " + urun.getAd() + ", İçecek: " + icecek.getAd();
+        } else if (urun != null) {
+            siparisDetay = "Yemek: " + urun.getAd();
+        } else if (icecek != null) {
+            siparisDetay = "İçecek: " + icecek.getAd();
+        } else {
+            siparisDetay = "Yemek veya içecek seçilmedi";
+        }
+        return "Sipariş No: " + siparisNo + "\nMüşteri: " + musteri.getAd() + "\nGarson: " + garson.getAd() +
+                "\nSipariş Detayı: " + siparisDetay + "\nSipariş Zamanı: " + tarih;
+    }
+    
+
+}
