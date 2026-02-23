@@ -1,105 +1,131 @@
+## Restaurant Order Management System (Java)
 
-# Java Dili Projesi – Restoran Sipariş Sistemi
+Bu proje Java programlama dili kullanılarak geliştirilmiş konsol tabanlı bir restoran sipariş yönetim sistemidir. Uygulama, nesne yönelimli programlama (OOP) prensipleri kullanılarak gerçek bir restoran iş akışını modellemek amacıyla tasarlanmıştır.
 
-Bu proje, **Java** programlama dili kullanılarak geliştirilmiş küçük ölçekli bir **restoran sipariş uygulamasıdır**.  
-Uygulama, nesne yönelimli programlama (OOP) konseptlerini kullanarak konsol üzerinde sipariş alıp işleyen temel bir sistemdir.
+Sistem; müşteri, garson, ürün ve sipariş kavramlarını sınıflar aracılığıyla ilişkilendirerek sipariş oluşturma ve fiş çıktısı üretme süreçlerini simüle eder.
 
----
-
-## 📌 Projenin Amacı
+## Proje Amacı
 
 Bu projenin amacı:
 
-- Nesne yönelimli programlamayı uygulamalı olarak öğrenmek  
-- Sınıf, kalıtım ve nesne ilişkilerini Java dilinde kurmak  
-- Müşteri → Sipariş → Garson → Restoran akışını modellemek  
-- Basit bir konsol uygulaması yazmaktır.
+Java ile nesne yönelimli programlama pratiği yapmak
 
-Projeyi kendi yazdım ve Java'nın temel kavramlarını öğrendikten sonra geliştirdim.
+Gerçek dünya senaryosunu sınıf yapılarıyla modellemek
 
----
+Sınıflar arası ilişki ve sorumluluk dağılımını göstermek
 
-## 📂 Proje Dosyaları ve Sınıflar
+Dosya işlemleri ile sipariş çıktısı oluşturmak
 
-### 👤 **Kisi.java**
-Ortak kişi özelliklerini tutan temel sınıftır.  
-Bu sınıf üzerinden kalıtım alan müşteri ve garson sınıfları türetilir.
+## Kullanılan Teknolojiler ve Kavramlar
 
----
+Java
 
-### 🧑‍🍳 **Garson.java**
-Müşteriden sipariş alma, siparişi işleme gibi görevleri temsil eden sınıftır.
+OOP (Object Oriented Programming)
 
----
+Sınıf ve nesne yapısı
 
-### 🧍‍♂️ **Musteri.java**
-Restoran ortamında sipariş verebilen kullanıcıyı temsil eder.
+Kapsülleme (Encapsulation)
 
----
+Kalıtım (Inheritance)
 
-### 🍽️ **Urun.java**
-Tüm ürünlerin ortak özelliklerini tutan temel sınıftır.  
-Bundan türeyen ürünlerde farklı türde ürünler tutulur.
+Metot organizasyonu
 
----
+ArrayList koleksiyonu
 
-### 🍕 **yemek.java**
-Urun sınıfından türeyen yemek türündeki ürünleri temsil eder.
+Rastgele veri üretimi (Random)
 
----
+Dosya yazma işlemleri (FileWriter, PrintWriter)
 
-### 🥤 **Icecek.java**
-Urun sınıfından türeyen içecek türündeki ürünleri temsil eder.
+Exception handling (try-catch)
 
----
+## Sistem Yapısı
 
-### 🧾 **Siparis.java**
-Bir müşterinin verdiği siparişi, içerisinde hangi ürünlerin olduğu ve toplam tutarı tutar.
+Sistem aşağıdaki temel sınıflardan oluşmaktadır:
 
----
+Kisi.java
+Temel kişi özelliklerini tanımlar.
 
-### 🏪 **Restoran.java**
-Sistemi kontrol eden sınıftır.  
-Garson, müşteri ve sipariş nesnelerini bu sınıf içinde yönetir.
+Musteri.java
+Müşteri davranışlarını temsil eder.
 
----
+Garson.java
+Garson işlemlerini modelleyen sınıf.
 
-### ▶️ **Test.java**
-Programın başlangıç noktasıdır (`main` metodu burada yer alır).  
-Buradan tüm sistem çalıştırılır ve konsol üzerinden kullanıcı ile etkileşim sağlanır.
+Urun.java
+Temel ürün sınıfı.
 
----
+Yemek.java
+Yemek türündeki ürünleri temsil eder.
 
-## 🔄 Program Akışı
+Icecek.java
+İçecek türündeki ürünleri temsil eder.
 
-1. `Test.java` çalıştırılır.
-2. Restoran nesnesi oluşturulur.
-3. Garson ve müşteri nesneleri tanımlanır.
-4. Menüdeki yemek ve içecek ürünleri oluşturulur.
-5. Müşteri bir sipariş verir.
-6. Garson siparişi alır ve restoran aracılığıyla işlenir.
-7. Sipariş özeti ve toplam tutar ekrana yazdırılır.
+Siparis.java
+Sipariş bilgilerini tutar (ürün, müşteri, garson, tarih, sipariş numarası).
 
----
+Restoran.java
+Menü, müşteri ve garson yönetimini sağlar ve sipariş oluşturma işlemini gerçekleştirir.
 
-## 🧠 Kullanılan OOP Kavramları
+Test.java
+Programın başlangıç noktasıdır (main metodu).
 
-Projede aşağıdaki nesne yönelimli programlama kavramları kullanılmıştır:
+## Program Akışı
 
-- **Class (Sınıf)**
-- **Object (Nesne)**
-- **Inheritance (Kalıtım)**
-- **Encapsulation (Kapsülleme)**
-- **Polymorphism (Çok Biçimlilik)**
+Restoran sistemi oluşturulur.
 
----
+Menüye ürünler eklenir.
 
-## 🛠️ Derleme ve Çalıştırma
+Garson ve müşteri listeleri oluşturulur.
 
-Projeyi çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
+Rastgele müşteri ve garson seçilerek sipariş oluşturulur.
 
-### 📌 Java dosyaları mevcutsa:
+Sipariş bilgileri ekrana yazdırılır.
 
-```bash
+Sipariş bilgisi otomatik olarak "Siparisler" klasörüne metin dosyası olarak kaydedilir.
+
+## Derleme ve Çalıştırma
+
+Proje klasöründe aşağıdaki komutları çalıştırın.
+
+Derleme:
+
 javac *.java
+
+Çalıştırma:
+
 java Test
+
+Siparişler otomatik olarak "Siparisler" klasörü altında oluşturulan .txt dosyalarına yazılır.
+
+## Teknik Detaylar
+
+Menü, müşteri ve garson verileri ArrayList yapısı ile tutulmaktadır.
+
+Sipariş oluşturma işlemi Random sınıfı ile dinamik hale getirilmiştir.
+
+Her sipariş için ayrı bir dosya oluşturularak çıktı alınmaktadır.
+
+Dosya işlemleri sırasında hata yönetimi için try-catch mekanizması kullanılmıştır.
+
+Sınıflar arası ilişki, gerçek restoran senaryosuna uygun şekilde modellenmiştir.
+
+Geliştirme Önerileri
+
+Sipariş numarasının merkezi bir sayaç ile yönetilmesi
+
+Sipariş geçmişi listeleme özelliği
+
+Stok kontrol sistemi
+
+Dosyadan veri okuma (kalıcı veri yönetimi)
+
+Grafiksel kullanıcı arayüzü (Swing / JavaFX)
+
+Katmanlı mimariye geçiş (Service ve Repository yapısı)
+
+
+
+
+## Geliştirici
+
+Tuğba Çevik
